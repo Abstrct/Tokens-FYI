@@ -151,8 +151,20 @@ function displayResults() {
 
 		if ($('#terms_exchanges').is(':checked')) {
 			for(var i =0; i < keywords_exchanges.length; i++){
-				results += ($('#colour_background').val() != null)? $('#colour_background').val() +';' : 0 +';';
-				results += ($('#colour_background').val() != null)? $('#colour_text').val() +';' : 0 +';';
+				if (
+						(
+							$('#colour_background').val() != '' 
+							&& $('#colour_background').val() != null 
+						)
+						|| 
+						(
+							$('#colour_text').val() != ''
+							&& $('#colour_text').val() != null
+						)
+					) {
+					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
+				}
 				results += keywords_exchanges[i] + '\n';
 			}
 		}
