@@ -18,6 +18,8 @@ $(document).ready(function() {
 
 		results = '';
 
+
+		//Build the Based Keywords
 		$.getJSON( "data/keywords_base.json", function( data ) {
 		  keywords_base = [];
 		  for (var i = 0; i < data.length; i++){
@@ -27,8 +29,11 @@ $(document).ready(function() {
 			displayResults();
 		});
 
+		//TODO
+		//Build the Wallet Keywords
 
 
+		//Build the Asset keywords from Coincap.io
 		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
 		  keywords_assets = [];
 		  $.each(data.data, function( key, val ) {
@@ -50,6 +55,8 @@ $(document).ready(function() {
 			displayResults();
 		});
 		    
+
+		//Build the Exchange keywords from Coincap.io
 		$.getJSON( "https://api.coincap.io/v2/exchanges", function( data ) {
 		  keywords_exchanges = [];
 		  $.each(data.data, function( key, val ) {
@@ -74,6 +81,7 @@ $(document).ready(function() {
 	});
 
     
+    //Used for switching between view modes. 
     $('input[name=result_display_type]').change(function(){ 
 	    $('.result_display_type').removeClass('is-primary');
 	    $('#results_display_type_' + this.value + '_value').addClass('is-primary');
@@ -81,8 +89,9 @@ $(document).ready(function() {
 		displayResults();
 	});
 	
-	
-	// Troll
+
+
+	// Move the warning message to below the results section
 	$('#button_understand').click(function(){
 
  		$('#top_warning').prop('hidden', true);
@@ -118,7 +127,13 @@ function displayResults() {
 					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
 					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
 				}
-				results += keywords_base[i] + '\n';
+
+				if (keywords_base[i].indexOf(' ') > -1)
+				{
+ 					results += '"' + keywords_base[i] + '"' + '\n';
+ 				} else {
+					results += keywords_base[i] + '\n';
+ 				}
 			}
 		}
 
@@ -138,7 +153,13 @@ function displayResults() {
 					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
 					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
 				}
-				results += keywords_assets[i] + '\n';
+				
+				if (keywords_assets[i].indexOf(' ') > -1)
+				{
+ 					results += '"' + keywords_assets[i] + '"' + '\n';
+ 				} else {
+					results += keywords_assets[i] + '\n';
+ 				}
 			}
 		}
 
@@ -158,7 +179,12 @@ function displayResults() {
 					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
 					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
 				}
-				results += keywords_exchanges[i] + '\n';
+				if (keywords_exchanges[i].indexOf(' ') > -1)
+				{
+ 					results += '"' + keywords_exchanges[i] + '"' + '\n';
+ 				} else {
+					results += keywords_exchanges[i] + '\n';
+ 				}
 			}
 		}
 		//results = keywords_assets.join('\n') + '\n' + keywords_exchanges.join('\n');
