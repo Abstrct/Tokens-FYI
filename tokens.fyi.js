@@ -1,8 +1,6 @@
 
 
 
-var understandable = 0;
-
 var results = '';
 
 var keywords_base = [];
@@ -87,13 +85,8 @@ $(document).ready(function() {
 	// Troll
 	$('#button_understand').click(function(){
 
-		if (understandable > 10) {
-			$('#understood').html('(lol, this is staying)');
-		} else {
-			$('#understood').html('');			
-		}
-		
-		understandable = (understandable + 1 ) % 13;
+ 		$('#top_warning').prop('hidden', true);
+    	$('#bottom_warning').prop('hidden',false);
 		
 	});
 
