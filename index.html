@@ -1,0 +1,187 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+		<link href="https://unpkg.com/nes.css@2.2.0/css/nes.min.css" rel="stylesheet" />
+		<link href="style.css" rel="stylesheet"/>
+		
+		<script src="tokens.fyi.js"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+        	<main class="main-content">
+	        	<section class="topic">
+					<h2 id="about"><a href="#about">#</a>Tokens.FYI</h2>
+					<p>A tool for generating keyword lists relating to blockchain networks, exchnages, cryptocurrencies, utility coins, and other digital asset themed words.  </p>
+          		</section>
+				<section class="topic">
+					<section class="schowcase">
+						<div class="nes-container with-title is-centered">
+								<p class="title  is-error">Warning</p>
+								
+								<p>This tool may not list 100% of applicable terms related to an engagement and should be used in conjuction with a skilled team of attornies and technologists. </p>
+								<button type="button" class="nes-btn is-error" id="button_understand">I Understand</button>
+								<p id='understood'></p>
+								
+						</div>
+					</section>
+					<section class="showcase">
+						<section class="nes-container with-title">
+							<p class="title">Choose Your Keywords</p>
+							<p>
+								<div class="nes-field">
+									<label> 
+										<input type="checkbox" class="nes-checkbox" id="terms_base"/>
+										<span>Base Terms</span>
+									</label>
+								</div>
+							</p>
+							<p>
+								<div class="nes-field">
+									<label> 
+										<input type="checkbox" class="nes-checkbox" id="terms_assets"/>
+										<span>Assets</span>
+									</label>
+								</div>
+							</p>
+							<p>
+								<div class="nes-field">
+									<label>
+										<input type="checkbox" class="nes-checkbox"  id="terms_exchanges"  />
+										<span>Exchanges</span>
+									</label>
+								</div>
+							</p>
+							<p>
+								<div class="nes-field">
+									<label>
+										<input type="checkbox" class="nes-checkbox"  id="terms_wallets"  />
+										<span>Wallets</span>
+									</label>
+								</div>
+							</p>
+						</section>
+					</section>
+
+					<section class="showcase">
+						<section class="nes-container with-title">
+							<p class="title">Choose Your Colours (Relativity Format)</p>
+							<p>
+								<label for="colour_background">Background Colour</label>
+								<div class="nes-select">
+								  <select required id="colour_background">
+								    <option value="" disabled selected hidden>Select...</option>
+								    <option value="">No Colour</option>
+								    <option value="0">Default</option>
+								    <option value="1">Black</option>
+								    <option value="2">Dark red</option>
+								    <option value="3">Dark green</option>
+								    <option value="4">Dark yellow</option>
+								    <option value="5">Dark blue</option>
+								    <option value="6">Dark magenta</option>
+								    <option value="7">Dark cyan</option>
+								    <option value="8">Light gray</option>
+								    <option value="9">Gray</option>
+								    <option value="10">Red</option>
+								    <option value="11">Green</option>
+								    <option value="12">Yellow</option>
+								    <option value="13">Blue</option>
+								    <option value="14">Magenta</option>
+								    <option value="15">Cyan</option>
+								    <option value="16">White</option>
+								  </select>
+								</div>
+							</p>
+							<p>
+								<label for="colour_background">Text Colour</label>
+								<div class="nes-select">
+								  <select required id="colour_text">
+								    <option value="" disabled selected hidden>Select...</option>
+								    <option value="">No Colour</option>
+								    <option value="0">Default</option>
+								    <option value="1">Black</option>
+								    <option value="2">Dark red</option>
+								    <option value="3">Dark green</option>
+								    <option value="4">Dark yellow</option>
+								    <option value="5">Dark blue</option>
+								    <option value="6">Dark magenta</option>
+								    <option value="7">Dark cyan</option>
+								    <option value="8">Light gray</option>
+								    <option value="9">Gray</option>
+								    <option value="10">Red</option>
+								    <option value="11">Green</option>
+								    <option value="12">Yellow</option>
+								    <option value="13">Blue</option>
+								    <option value="14">Magenta</option>
+								    <option value="15">Cyan</option>
+								    <option value="16">White</option>
+								  </select>
+								</div>
+							</p>
+						</section>
+					</section>
+
+					<section class="showcase">
+						<button type="button" class="nes-btn is-success" id="button_generate">Generate Keywords!</button>
+					</section>
+					
+					<section class="showcase">
+						<section class="nes-container with-title">
+							<p class="title">Results</p>
+							<p>
+								<label>
+									<input type="radio" class="nes-radio" id="result_display_type_list" name="result_display_type" value="List" checked />
+									<span class="nes-text result_display_type is-primary" id="results_display_type_List_value">List</span>
+								</label>
+
+								<label>
+									<input type="radio" class="nes-radio" id="result_display_type_table" name="result_display_type" value="Table"  />
+									<span class="nes-text result_display_type" id="results_display_type_Table_value">Table</span>
+								</label>
+							</p>
+
+							<p>
+								<textarea id="textarea_field" class="nes-textarea" rows="10"></textarea>
+							</p>
+
+						</section>
+					</section>
+
+
+	
+
+					<section class="showcase">
+						<section class="nes-container with-title">
+							<p class="title">Credits</p>
+
+							<p>
+								Built (quickly) by <a href="https://www.linkedin.com/in/joshuamcdougall/">Joshua McDougall</a> for <a href="https://relativityfest.com/">#RelativityFest</a>
+								<br /> <a href="http://abstrct.com">abstrct.com</a> <a href="https://twitter.com/abstr_ct">@abstr_ct</a> 
+							</p>
+
+							<p>
+								Asset & Exchange data pulled directly from 🦊<a href="https://coincap.io/">Coincap.io</a>🦊
+							</p>
+							
+							<p>
+								Style elements from <a href="https://nostalgic-css.github.io/NES.css/">NES.css</a>
+							</p>
+
+							<p>
+								Please feel free to <a href="https://github.com/Abstrct/Tokens-FYI">Make This Better</a>
+							</p>
+
+						</section>
+					</section>
+
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
