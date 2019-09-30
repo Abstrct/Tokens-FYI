@@ -106,7 +106,7 @@ function displayResults() {
 	
 	if ($('input[name=result_display_type]:checked').val() == 'List' ) {
 
-
+		$('#textarea_field').html('');  
 
 		if ($('#terms_base').is(':checked')) {
 			for(var i =0; i < keywords_base.length; i++){
