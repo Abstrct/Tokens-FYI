@@ -21,13 +21,10 @@ $(document).ready(function() {
 		results = '';
 
 		$.getJSON( "data/keywords_base.json", function( data ) {
-
-		  $.each(data, function( key, val ) {
-		    
-		  	 	keywords_base.push(  data[key] );
-			
-		   });
-
+		  keywords_base = [];
+		  for (var i = 0; i < data.length; i++){
+		  	 	keywords_base.push(  data[i] );
+		  }
 		}).done(function(){
 			displayResults();
 		});
@@ -35,7 +32,7 @@ $(document).ready(function() {
 
 
 		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
-
+		  keywords_assets = [];
 		  $.each(data.data, function( key, val ) {
 		    
 		    if (val.id.toUpperCase() !== val.name.toUpperCase()) {
@@ -56,7 +53,7 @@ $(document).ready(function() {
 		});
 		    
 		$.getJSON( "https://api.coincap.io/v2/exchanges", function( data ) {
-
+		  keywords_exchanges = [];
 		  $.each(data.data, function( key, val ) {
 		    
 		    if (val.exchangeId.toUpperCase() !== val.name.toUpperCase()) {
