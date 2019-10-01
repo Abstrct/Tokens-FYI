@@ -123,7 +123,7 @@ $(document).ready(function() {
 		  $.each(data.data, function( key, val ) {
 		    
 		    if ($('#terms_exchanges_options_names').is(':checked') ) {
-			    if (val.exchangeId.toUpperCase() !== val.name.replace("-"," ")toUpperCase()) {
+			    if (val.exchangeId.toUpperCase() !== val.name.replace("-"," ").toUpperCase()) {
 				    keywords_exchanges.push(  val.name.replace("-"," ")  );
 				    keywords_exchanges.push(  val.exchangeId  );
 
