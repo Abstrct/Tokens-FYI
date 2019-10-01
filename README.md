@@ -1,5 +1,5 @@
 # Tokens.FYI
-A tool for generating keyword lists relating to blockchain networks, exchanges, cryptocurrencies, utility coins, and other digital asset themed words.
+An eDiscovery and DFIR tool for generating keyword lists relating to blockchain networks, exchanges, cryptocurrencies, utility coins, and other digital asset themed words.
 
 ## Disclaimer 
 This tool may not list 100% of applicable terms related to an engagement and should be used in conjuction with a skilled team of attornies and technologists.
