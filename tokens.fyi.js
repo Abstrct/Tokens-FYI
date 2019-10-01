@@ -207,7 +207,7 @@ function displayResults() {
 				results += keywords_base[i] + '\n';
 			}
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_base[i] + '</td><td>' + ' General ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+ '</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_base[i] + '</td><td>' + ' General ' + '</td></tr>');
 
 		}
 	}
@@ -243,7 +243,7 @@ function displayResults() {
 				results += keywords_wallets[i] + '\n';
 			}
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_wallets[i] + '</td><td>' + ' Wallets' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+ '</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_wallets[i] + '</td><td>' + ' Wallets' + '</td></tr>');
 		}
 	}
 
@@ -279,7 +279,7 @@ function displayResults() {
 				results += keywords_assets[i] + '\n';
 			}
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_assets[i] + '</td><td>' + ' Assets ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_assets[i] + '</td><td>' + ' Assets ' + '</td></tr>');
 		}
 	}
 
@@ -312,7 +312,7 @@ function displayResults() {
 				results += keywords_exchanges[i] + '\n';
 			}
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Exchanges ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Exchanges ' + '</td></tr>');
 
 		}
 	}
@@ -337,7 +337,7 @@ function displayResults() {
 
 			results += '"' + keywords_addresses[i] + '"' + '\n';
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_addresses[i] + '</td><td>' + ' Addresses ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_addresses[i] + '</td><td>' + ' Addresses ' + '</td></tr>');
 
 		}
 	}
