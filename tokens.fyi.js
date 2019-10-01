@@ -125,6 +125,14 @@ $(document).ready(function() {
 		
 	});
 
+
+	$('#copy_results').click(function(){
+
+ 		 $('#textarea_field').select();
+  		document.execCommand("copy");
+		
+	});
+
 });
 
 
