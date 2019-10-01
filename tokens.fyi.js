@@ -8,7 +8,7 @@ var keywords_wallets = [];
 var keywords_assets = [];
 var keywords_exchanges = [];
 
-
+var colours = Array('Default','Black','Dark red','Dark green','Dark yellow','Dark blue','Dark magenta','Dark cyan','Light gray','Gray','Red','Green','Yellow','Blue','Magenta','Cyan','White');
 
 var test = '';
 
@@ -105,6 +105,13 @@ $(document).ready(function() {
 	    $('.result_display_type').removeClass('is-primary');
 	    $('#results_display_type_' + this.value + '_value').addClass('is-primary');
 
+	    if (this.value == "List") {
+	     	$('#results_table').prop('hidden', true);
+    		$('#results_text').prop('hidden', false);
+    	} else {
+	     	$('#results_table').prop('hidden', false);
+    		$('#results_text').prop('hidden', true);
+    	}
 		displayResults();
 	});
 	
@@ -125,122 +132,124 @@ $(document).ready(function() {
 
 function displayResults() {
 	
-	if ($('input[name=result_display_type]:checked').val() == 'List' ) {
+	results = '';
+	$('#keywords_table').find("tbody").html('');  
 
-		$('#textarea_field').html('');  
-		results = '';
-
-		if ($('#terms_base').is(':checked')) {
-			for(var i =0; i < keywords_base.length; i++){
-				if (
-						(
-							$('#colour_background').val() != '' 
-							&& $('#colour_background').val() != null 
-						)
-						|| 
-						(
-							$('#colour_text').val() != ''
-							&& $('#colour_text').val() != null
-						)
-					) {
-					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
-					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
-				}
-
-				if (keywords_base[i].indexOf(' ') > -1)
-				{
- 					results += '"' + keywords_base[i] + '"' + '\n';
- 				} else {
-					results += keywords_base[i] + '\n';
- 				}
+	if ($('#terms_base').is(':checked')) {
+		for(var i =0; i < keywords_base.length; i++){
+			if (
+					(
+						$('#colour_background').val() != '' 
+						&& $('#colour_background').val() != null 
+					)
+					|| 
+					(
+						$('#colour_text').val() != ''
+						&& $('#colour_text').val() != null
+					)
+				) {
+				results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+				results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
 			}
-		}
 
-
-		if ($('#terms_wallets').is(':checked')) {
-			for(var i =0; i < keywords_wallets.length; i++){
-				if (
-						(
-							$('#colour_background').val() != '' 
-							&& $('#colour_background').val() != null 
-						)
-						|| 
-						(
-							$('#colour_text').val() != ''
-							&& $('#colour_text').val() != null
-						)
-					) {
-					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
-					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
-				}
-
-				if (keywords_wallets[i].indexOf(' ') > -1)
-				{
- 					results += '"' + keywords_wallets[i] + '"' + '\n';
- 				} else {
-					results += keywords_wallets[i] + '\n';
- 				}
+			if (keywords_base[i].indexOf(' ') > -1)
+			{
+				results += '"' + keywords_base[i] + '"' + '\n';
+			} else {
+				results += keywords_base[i] + '\n';
 			}
+
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_base[i] + '</td><td>' + ' Base Terms ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+ '</td></tr>');
 		}
+	}
 
 
-		if ($('#terms_assets').is(':checked')) {
-			for(var i =0; i < keywords_assets.length; i++){
-				if (
-						(
-							$('#colour_background').val() != '' 
-							&& $('#colour_background').val() != null 
-						)
-						|| 
-						(
-							$('#colour_text').val() != ''
-							&& $('#colour_text').val() != null
-						)
-					) {
-					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
-					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
-				}
-				
-				if (keywords_assets[i].indexOf(' ') > -1)
-				{
- 					results += '"' + keywords_assets[i] + '"' + '\n';
- 				} else {
-					results += keywords_assets[i] + '\n';
- 				}
+	if ($('#terms_wallets').is(':checked')) {
+		for(var i =0; i < keywords_wallets.length; i++){
+			if (
+					(
+						$('#colour_background').val() != '' 
+						&& $('#colour_background').val() != null 
+					)
+					|| 
+					(
+						$('#colour_text').val() != ''
+						&& $('#colour_text').val() != null
+					)
+				) {
+				results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+				results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
 			}
-		}
 
-		if ($('#terms_exchanges').is(':checked')) {
-			for(var i =0; i < keywords_exchanges.length; i++){
-				if (
-						(
-							$('#colour_background').val() != '' 
-							&& $('#colour_background').val() != null 
-						)
-						|| 
-						(
-							$('#colour_text').val() != ''
-							&& $('#colour_text').val() != null
-						)
-					) {
-					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
-					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
-				}
-				if (keywords_exchanges[i].indexOf(' ') > -1)
-				{
- 					results += '"' + keywords_exchanges[i] + '"' + '\n';
- 				} else {
-					results += keywords_exchanges[i] + '\n';
- 				}
+			if (keywords_wallets[i].indexOf(' ') > -1)
+			{
+				results += '"' + keywords_wallets[i] + '"' + '\n';
+			} else {
+				results += keywords_wallets[i] + '\n';
 			}
+
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_wallets[i] + '</td><td>' + ' Wallets' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+ '</td></tr>');
 		}
-		//results = keywords_assets.join('\n') + '\n' + keywords_exchanges.join('\n');
-		$('#textarea_field').html(results);  
-		
-	} else if ($('input[name=result_display_type]:checked').val() == 'Table' ) {
-		// TODO build table version
-		
-	} 
+	}
+
+
+	if ($('#terms_assets').is(':checked')) {
+		for(var i =0; i < keywords_assets.length; i++){
+			if (
+					(
+						$('#colour_background').val() != '' 
+						&& $('#colour_background').val() != null 
+					)
+					|| 
+					(
+						$('#colour_text').val() != ''
+						&& $('#colour_text').val() != null
+					)
+				) {
+				results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+				results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
+			}
+			
+			if (keywords_assets[i].indexOf(' ') > -1)
+			{
+				results += '"' + keywords_assets[i] + '"' + '\n';
+			} else {
+				results += keywords_assets[i] + '\n';
+			}
+
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_assets[i] + '</td><td>' + ' Assets ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+		}
+	}
+
+	if ($('#terms_exchanges').is(':checked')) {
+		for(var i =0; i < keywords_exchanges.length; i++){
+			if (
+					(
+						$('#colour_background').val() != '' 
+						&& $('#colour_background').val() != null 
+					)
+					|| 
+					(
+						$('#colour_text').val() != ''
+						&& $('#colour_text').val() != null
+					)
+				) {
+				results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+				results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
+			}
+			if (keywords_exchanges[i].indexOf(' ') > -1)
+			{
+				results += '"' + keywords_exchanges[i] + '"' + '\n';
+			} else {
+				results += keywords_exchanges[i] + '\n';
+			}
+
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Exchnages ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+
+		}
+	}
+	//results = keywords_assets.join('\n') + '\n' + keywords_exchanges.join('\n');
+	$('#textarea_field').html(results);  
 		
 	 
 }
