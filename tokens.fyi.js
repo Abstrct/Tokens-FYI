@@ -30,7 +30,7 @@ $(document).ready(function() {
 		});
 
 		//Build the Wallet Keywords
-		$.getJSON( "data/kewords_wallets.json", function( data ) {
+		$.getJSON( "data/keywords_wallets.json", function( data ) {
 		  keywords_wallets = [];
 		  $.each(data.data, function( key, val ) {
 		    
