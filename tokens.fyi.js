@@ -65,7 +65,7 @@ $(document).ready(function() {
 		    	keywords_assets.push(  val.name  );
 		    }
 
-		    if (!(val.symbol == val.id || val.symbol == val.name)) { 
+		    if (!(val.symbol == val.id && val.symbol == val.name)) { 
 		  	 	keywords_assets.push(  val.symbol  );
 			}
 		   });
