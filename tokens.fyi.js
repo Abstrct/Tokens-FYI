@@ -128,12 +128,19 @@ $(document).ready(function() {
 
 	$('#copy_results').click(function(){
 
-	    $('#results_table').prop('hidden', true);
-    	$('#results_text').prop('hidden', false);
- 		$('#textarea_field').select();
-  		document.execCommand("copy");
-  		$('#results_table').prop('hidden', false);
-    	$('#results_text').prop('hidden', true);
+
+		if ($('input[name=result_display_type]').value == "List") {
+	 		$('#textarea_field').select();
+	  		document.execCommand("copy");
+		} else {
+
+		    $('#results_table').prop('hidden', true);
+	    	$('#results_text').prop('hidden', false);
+	 		$('#textarea_field').select();
+	  		document.execCommand("copy");
+	  		$('#results_table').prop('hidden', false);
+	    	$('#results_text').prop('hidden', true);
+    	}
 		
 	});
 
