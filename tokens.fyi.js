@@ -79,7 +79,7 @@ $(document).ready(function() {
 		    	keywords_assets.push(  val.name  );
 		    }
 
-		    if (!(val.symbol == val.id && val.symbol == val.name)) { 
+		    if (!(val.symbol.toUpperCase() == val.id.toUpperCase() && val.symbol.toUpperCase() == val.name.toUpperCase())) { 
 		  	 	keywords_assets.push(  val.symbol  );
 			}
 		   });
