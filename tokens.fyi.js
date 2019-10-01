@@ -337,7 +337,7 @@ function displayResults() {
 
 			results += '"' + keywords_addresses[i] + '"' + '\n';
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Addresses ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_addresses[i] + '</td><td>' + ' Addresses ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
 
 		}
 	}
