@@ -131,8 +131,11 @@
 					</section>
 					
 					<section class="showcase">
+						
+							<button type="button" class="nes-btn is-primary" style="float: right;"  id="copy_results">Copy Results</button> 
+				
 						<section class="nes-container with-title">
-							<p class="title">Results</p>
+							<p class="title">Results</p>							
 							<p>
 								<label>
 									<input type="radio" class="nes-radio" id="result_display_type_list" name="result_display_type" value="List" checked />
@@ -143,17 +146,15 @@
 									<input type="radio" class="nes-radio" id="result_display_type_table" name="result_display_type" value="Table"  />
 									<span class="nes-text result_display_type" id="results_display_type_Table_value">Table</span>
 								</label>
-
-								<span style="float: right;" >				
-									<button type="button" class="nes-btn is-primary" id="copy_results">Copy Results</button> <br />
-								</span>					
+				
 							</p>
 
+					
 							<p id="results_text">
 								<textarea id="textarea_field" class="nes-textarea" rows="10"></textarea>
 							</p>
 
-							<div class="nes-table-responsive" id="results_table" hidden="true">
+							<div class="nes-table-responsive" id="results_table" hidden="true" >
 							  <table class="nes-table is-bordered is-centered" id="keywords_table">
 							    <thead>
 							      <tr>
@@ -168,6 +169,7 @@
 							    </tbody>
 							  </table>
 							</div>
+					
 
 						</section>
 

@@ -128,8 +128,12 @@ $(document).ready(function() {
 
 	$('#copy_results').click(function(){
 
- 		 $('#textarea_field').select();
+	    $('#results_table').prop('hidden', true);
+    	$('#results_text').prop('hidden', false);
+ 		$('#textarea_field').select();
   		document.execCommand("copy");
+  		$('#results_table').prop('hidden', false);
+    	$('#results_text').prop('hidden', true);
 		
 	});
 
@@ -252,7 +256,7 @@ function displayResults() {
 				results += keywords_exchanges[i] + '\n';
 			}
 
-			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Exchnages ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Exchanges ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
 
 		}
 	}
