@@ -86,22 +86,22 @@ $(document).ready(function() {
 		  $.each(data.data, function( key, val ) {
 		   
 		   if ($('#terms_assets_options_names').is(':checked') && $('#terms_assets_options_ticker').is(':checked')) {
-			    if (val.id.toUpperCase() != val.name.toUpperCase()) {
+			    if (val.id.replace("-","").toUpperCase() != val.name.toUpperCase()) {
 				    keywords_assets.push(  val.name  );
-				    keywords_assets.push(  val.id  );
+				    keywords_assets.push(  val.id.replace("-","")  );
 
 			    } else {
 			    	keywords_assets.push(  val.name  );
 			    }
 
-			    if (!(val.symbol.toUpperCase() == val.id.toUpperCase() || val.symbol.toUpperCase() == val.name.toUpperCase())) { 
+			    if (!(val.symbol.toUpperCase() == val.id.replace("-","").toUpperCase() || val.symbol.toUpperCase() == val.name.toUpperCase())) { 
 			  	 	keywords_assets.push(  val.symbol  );
 				}
 
 			} else if ($('#terms_assets_options_names').is(':checked') ) {
-			    if (val.id.toUpperCase() != val.name.toUpperCase()) {
+			    if (val.id.replace("-","").toUpperCase() != val.name.toUpperCase()) {
 				    keywords_assets.push(  val.name  );
-				    keywords_assets.push(  val.id  );
+				    keywords_assets.push(  val.id.replace("-","")  );
 
 			    } else {
 			    	keywords_assets.push(  val.name  );
@@ -123,12 +123,12 @@ $(document).ready(function() {
 		  $.each(data.data, function( key, val ) {
 		    
 		    if ($('#terms_exchanges_options_names').is(':checked') ) {
-			    if (val.exchangeId.toUpperCase() !== val.name.toUpperCase()) {
-				    keywords_exchanges.push(  val.name  );
+			    if (val.exchangeId.toUpperCase() !== val.name.replace("-"," ")toUpperCase()) {
+				    keywords_exchanges.push(  val.name.replace("-"," ")  );
 				    keywords_exchanges.push(  val.exchangeId  );
 
 			    } else {
-			    	keywords_exchanges.push(  val.name  );
+			    	keywords_exchanges.push(  val.name.replace("-"," ")  );
 			    }
 			}
 
