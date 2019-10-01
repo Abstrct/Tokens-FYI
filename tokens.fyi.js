@@ -7,6 +7,7 @@ var keywords_base = [];
 var keywords_wallets = [];
 var keywords_assets = [];
 var keywords_exchanges = [];
+var keywords_noise = [];
 
 var colours = Array('Default','Black','Dark red','Dark green','Dark yellow','Dark blue','Dark magenta','Dark cyan','Light gray','Gray','Red','Green','Yellow','Blue','Magenta','Cyan','White');
 
@@ -17,6 +18,17 @@ $(document).ready(function() {
 	$('#button_generate').click(function(){
 
 		results = '';
+
+		//Build the Wallet Keywords
+		$.getJSON( "data/keywords_noise.json", function( data ) {
+		  keywords_noise = [];
+		  for (var i = 0; i < data.length; i++){
+		    keywords_noise.push(  data[i].toUpperCase() );
+		  }
+
+		}).done(function(){
+			displayResults();
+		});
 
 
 		//Build the Based Keywords
@@ -51,6 +63,8 @@ $(document).ready(function() {
 		}).done(function(){
 			displayResults();
 		});
+
+
 
 		//Build the Asset keywords from Coincap.io
 		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
@@ -156,6 +170,12 @@ function displayResults() {
 
 	if ($('#terms_base').is(':checked')) {
 		for(var i =0; i < keywords_base.length; i++){
+			if ($('#terms_noise').is(':checked')) {
+				if(keywords_noise.includes(keywords_base[i].toUpperCase())){
+					continue;
+				}
+			}
+
 			if (
 					(
 						$('#colour_background').val() != '' 
@@ -179,12 +199,19 @@ function displayResults() {
 			}
 
 			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_base[i] + '</td><td>' + ' General ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+ '</td></tr>');
+
 		}
 	}
 
 
 	if ($('#terms_wallets').is(':checked')) {
 		for(var i =0; i < keywords_wallets.length; i++){
+			if ($('#terms_noise').is(':checked')) {
+				if(keywords_noise.includes(keywords_wallets[i].toUpperCase())){
+					continue;
+				}
+			}
+
 			if (
 					(
 						$('#colour_background').val() != '' 
@@ -214,6 +241,13 @@ function displayResults() {
 
 	if ($('#terms_assets').is(':checked')) {
 		for(var i =0; i < keywords_assets.length; i++){
+
+			if ($('#terms_noise').is(':checked')) {
+				if(keywords_noise.includes(keywords_assets[i].toUpperCase())){
+					continue;
+				}
+			}
+
 			if (
 					(
 						$('#colour_background').val() != '' 
@@ -242,6 +276,12 @@ function displayResults() {
 
 	if ($('#terms_exchanges').is(':checked')) {
 		for(var i =0; i < keywords_exchanges.length; i++){
+			if ($('#terms_noise').is(':checked')) {
+				if(keywords_noise.includes(keywords_exchanges[i].toUpperCase())){
+					continue;
+				}
+			}
+
 			if (
 					(
 						$('#colour_background').val() != '' 
