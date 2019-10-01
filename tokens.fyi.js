@@ -143,7 +143,7 @@ $(document).ready(function() {
 	$('#copy_results').click(function(){
 
 
-		if ($('input[name=result_display_type]').value == "List") {
+		if ($('input[name=result_display_type]').value == "List" || $('input[name=result_display_type]').value == null) {
 	 		$('#textarea_field').select();
 	  		document.execCommand("copy");
 		} else {
