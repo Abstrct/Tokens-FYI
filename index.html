@@ -41,14 +41,63 @@
 									</label>
 								</div>
 							</p>
+							<hr />
+							<p>
+								<div class="nes-field">
+									<label>
+										<input type="checkbox" class="nes-checkbox"  id="terms_addresses"  />
+										<span>Addresses</span>
+									</label>
+								</div>
+							</p>
+							<hr />
+
 							<p>
 								<div class="nes-field">
 									<label> 
 										<input type="checkbox" class="nes-checkbox" id="terms_assets"/>
 										<span>Assets</span>
 									</label>
+
+
 								</div>
+									<p>
+										<section class="nes-container with-title" id="term_assets_options_container" hidden="true" >
+											<p class="title">Options</p>
+
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_assets_options_names" checked="checked" />
+											<span>Include Names (ex: Bitcoin)</span>
+										</label>
+									</div>
+																		<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_assets_options_ticker" checked="checked" />
+											<span>Include Ticker (ex: BTC)</span>
+										</label>
+									</div>
+
+										<div class="nes-field is-inline">
+										  <label for="terms_assets_options_max">Limit</label>
+											<div class="nes-select">
+											  <select  id="terms_assets_options_max" width:150px; >
+											    <option value="5">5 Assets</option>
+											    <option value="10">10 Assets</option>
+											    <option value="25" selected>25 Assets</option>
+											    <option value="50">50 Assets</option>
+											    <option value="100">100 Assets</option>
+											    <option value="1500">Maximum (1500)</option>
+											  </select>
+											</div>
+										</div>
+									</section>
+									</p>
+
+		
+
 							</p>
+							<hr />
 							<p>
 								<div class="nes-field">
 									<label>
@@ -56,7 +105,41 @@
 										<span>Exchanges</span>
 									</label>
 								</div>
+
+
+								<section class="nes-container with-title" id="term_exchanges_options_container"  hidden="true">
+									<p class="title">Options</p>
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_exchanges_options_names" checked="checked" />
+											<span>Include Names</span>
+										</label>
+									</div>
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_exchanges_options_websites" checked="checked" />
+											<span>Include Websites</span>
+										</label>
+									</div>
+
+									<div class="nes-field is-inline">
+									  <label for="terms_exchanges_options_max">Limit</label>
+										<div class="nes-select">
+										  <select  id="terms_exchanges_options_max" width:150px; >
+											<option value="10">10 Exchanges</option>
+										    <option value="25" selected>25 Exchanges</option>
+										    <option value="50">50 Exchanges</option>
+										    <option value="200">Unlimited</option>
+										  </select>
+										</div>
+									</div>
+								
+
+								</section>
+
 							</p>
+
+							<hr />
 							<p>
 								<div class="nes-field">
 									<label>
@@ -64,15 +147,33 @@
 										<span>Wallets</span>
 									</label>
 								</div>
+
+
+								<section class="nes-container with-title" id="term_wallets_options_container"  hidden="true" >
+									<p class="title">Options</p>
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_wallets_options_names" checked="checked" />
+											<span>Include Names</span>
+										</label>
+									</div>
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_wallets_options_websites" checked="checked" />
+											<span>Include Websites</span>
+										</label>
+									</div>
+									<div class="nes-field">
+										<label>
+											<input type="checkbox" class="nes-checkbox"  id="terms_wallets_options_files" checked="checked" />
+											<span>Include Filenames (Ex: wallet.dat)</span>
+										</label>
+									</div>
+
+								</section>
+
 							</p>
-							<p>
-								<div class="nes-field">
-									<label>
-										<input type="checkbox" class="nes-checkbox"  id="terms_addresses"  />
-										<span>Addresses (Regular Expressions)</span>
-									</label>
-								</div>
-							</p>
+
 							<p>
 								<hr />
 							</p>
@@ -96,63 +197,6 @@
 						</section>
 					</section>
 
-					<section class="showcase">
-						<section class="nes-container with-title">
-							<p class="title">Choose Your Colours (Relativity Format)</p>
-							<p>
-								<label for="colour_background">Background Colour</label>
-								<div class="nes-select">
-								  <select required id="colour_background">
-								    <option value="" disabled selected hidden>Select...</option>
-								    <option value="">No Colour</option>
-								    <option value="0">Default</option>
-								    <option value="1">Black</option>
-								    <option value="2">Dark red</option>
-								    <option value="3">Dark green</option>
-								    <option value="4">Dark yellow</option>
-								    <option value="5">Dark blue</option>
-								    <option value="6">Dark magenta</option>
-								    <option value="7">Dark cyan</option>
-								    <option value="8">Light gray</option>
-								    <option value="9">Gray</option>
-								    <option value="10">Red</option>
-								    <option value="11">Green</option>
-								    <option value="12">Yellow</option>
-								    <option value="13">Blue</option>
-								    <option value="14">Magenta</option>
-								    <option value="15">Cyan</option>
-								    <option value="16">White</option>
-								  </select>
-								</div>
-							</p>
-							<p>
-								<label for="colour_background">Text Colour</label>
-								<div class="nes-select">
-								  <select required id="colour_text">
-								    <option value="" disabled selected hidden>Select...</option>
-								    <option value="">No Colour</option>
-								    <option value="0">Default</option>
-								    <option value="1">Black</option>
-								    <option value="2">Dark red</option>
-								    <option value="3">Dark green</option>
-								    <option value="4">Dark yellow</option>
-								    <option value="5">Dark blue</option>
-								    <option value="6">Dark magenta</option>
-								    <option value="7">Dark cyan</option>
-								    <option value="8">Light gray</option>
-								    <option value="9">Gray</option>
-								    <option value="10">Red</option>
-								    <option value="11">Green</option>
-								    <option value="12">Yellow</option>
-								    <option value="13">Blue</option>
-								    <option value="14">Magenta</option>
-								    <option value="15">Cyan</option>
-								    <option value="16">White</option>
-								  </select>
-								</div>
-							</p>
-						</section>
-					</section>
 
 					<section class="showcase">
 						<button type="button" class="nes-btn is-success" id="button_generate">Generate Keywords!</button>
@@ -213,6 +257,64 @@
 						</div>
 					</section>
 	
+					<section class="showcase">
+						<section class="nes-container with-title">
+							<p class="title">Choose Your Colours (Relativity Format)</p>
+							<p>
+								<label for="colour_background">Background Colour</label>
+								<div class="nes-select">
+								  <select required id="colour_background">
+								    <option value="" disabled selected hidden>Select...</option>
+								    <option value="">No Colour</option>
+								    <option value="0">Default</option>
+								    <option value="1">Black</option>
+								    <option value="2">Dark red</option>
+								    <option value="3">Dark green</option>
+								    <option value="4">Dark yellow</option>
+								    <option value="5">Dark blue</option>
+								    <option value="6">Dark magenta</option>
+								    <option value="7">Dark cyan</option>
+								    <option value="8">Light gray</option>
+								    <option value="9">Gray</option>
+								    <option value="10">Red</option>
+								    <option value="11">Green</option>
+								    <option value="12">Yellow</option>
+								    <option value="13">Blue</option>
+								    <option value="14">Magenta</option>
+								    <option value="15">Cyan</option>
+								    <option value="16">White</option>
+								  </select>
+								</div>
+							</p>
+							<p>
+								<label for="colour_background">Text Colour</label>
+								<div class="nes-select">
+								  <select required id="colour_text" >
+								    <option value="" disabled selected hidden>Select...</option>
+								    <option value="">No Colour</option>
+								    <option value="0">Default</option>
+								    <option value="1">Black</option>
+								    <option value="2">Dark red</option>
+								    <option value="3">Dark green</option>
+								    <option value="4">Dark yellow</option>
+								    <option value="5">Dark blue</option>
+								    <option value="6">Dark magenta</option>
+								    <option value="7">Dark cyan</option>
+								    <option value="8">Light gray</option>
+								    <option value="9">Gray</option>
+								    <option value="10">Red</option>
+								    <option value="11">Green</option>
+								    <option value="12">Yellow</option>
+								    <option value="13">Blue</option>
+								    <option value="14">Magenta</option>
+								    <option value="15">Cyan</option>
+								    <option value="16">White</option>
+								  </select>
+								</div>
+							</p>
+						</section>
+					</section>
+
 
 					<section class="showcase">
 						<section class="nes-container with-title">

@@ -47,18 +47,23 @@ $(document).ready(function() {
 		  keywords_wallets = [];
 		  $.each(data.data, function( key, val ) {
 		    
-		    for(var i = 0; i < val.name.length; i++) {
-			    keywords_wallets.push(  val.name[i] );
-		    }
+		    if ($('#terms_wallets_options_names').is(':checked') ) {
+			    for(var i = 0; i < val.name.length; i++) {
+				    keywords_wallets.push(  val.name[i] );
+			    }
+			}
 
-		    for(var i = 0; i < val.website.length; i++) {
-			    keywords_wallets.push(  val.website[i] );
-		    }
+			if ($('#terms_wallets_options_websites').is(':checked') ) {
+			    for(var i = 0; i < val.website.length; i++) {
+				    keywords_wallets.push(  val.website[i] );
+			    }
+			}
 
-		    for(var i = 0; i < val.relevant_files.length; i++) {
-			    keywords_wallets.push(  val.relevant_files[i] );
+			if ($('#terms_wallets_options_files').is(':checked') ) {
+		   		for(var i = 0; i < val.relevant_files.length; i++) {
+			    	keywords_wallets.push(  val.relevant_files[i] );
+		    	}
 		    }
-
 		   });
 
 		}).done(function(){
@@ -76,21 +81,35 @@ $(document).ready(function() {
 		});
 
 		//Build the Asset keywords from Coincap.io
-		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
+		$.getJSON( "https://api.coincap.io/v2/assets?limit="+ $('#terms_assets_options_max').val(), function( data ) {
 		  keywords_assets = [];
 		  $.each(data.data, function( key, val ) {
-		    
-		    if (val.id.toUpperCase() !== val.name.toUpperCase()) {
-			    keywords_assets.push(  val.name  );
-			    keywords_assets.push(  val.id  );
+		   
+		   if ($('#terms_assets_options_names').is(':checked') && $('#terms_assets_options_ticker').is(':checked')) {
+			    if (val.id.toUpperCase() != val.name.toUpperCase()) {
+				    keywords_assets.push(  val.name  );
+				    keywords_assets.push(  val.id  );
 
-		    } else {
-		    	keywords_assets.push(  val.name  );
-		    }
+			    } else {
+			    	keywords_assets.push(  val.name  );
+			    }
 
-		    if (!(val.symbol.toUpperCase() == val.id.toUpperCase() && val.symbol.toUpperCase() == val.name.toUpperCase())) { 
-		  	 	keywords_assets.push(  val.symbol  );
+			    if (!(val.symbol.toUpperCase() == val.id.toUpperCase() || val.symbol.toUpperCase() == val.name.toUpperCase())) { 
+			  	 	keywords_assets.push(  val.symbol  );
+				}
+
+			} else if ($('#terms_assets_options_names').is(':checked') ) {
+			    if (val.id.toUpperCase() != val.name.toUpperCase()) {
+				    keywords_assets.push(  val.name  );
+				    keywords_assets.push(  val.id  );
+
+			    } else {
+			    	keywords_assets.push(  val.name  );
+			    }
+			} else if ($('#terms_assets_options_ticker').is(':checked')) {
+				keywords_assets.push(  val.symbol  );
 			}
+
 		   });
 
 		}).done(function(){
@@ -99,19 +118,23 @@ $(document).ready(function() {
 		    
 
 		//Build the Exchange keywords from Coincap.io
-		$.getJSON( "https://api.coincap.io/v2/exchanges", function( data ) {
+		$.getJSON( "https://api.coincap.io/v2/exchanges?limit="+ $('#terms_assets_options_max').val(), function( data ) {
 		  keywords_exchanges = [];
 		  $.each(data.data, function( key, val ) {
 		    
-		    if (val.exchangeId.toUpperCase() !== val.name.toUpperCase()) {
-			    keywords_exchanges.push(  val.name  );
-			    keywords_exchanges.push(  val.exchangeId  );
+		    if ($('#terms_exchanges_options_names').is(':checked') ) {
+			    if (val.exchangeId.toUpperCase() !== val.name.toUpperCase()) {
+				    keywords_exchanges.push(  val.name  );
+				    keywords_exchanges.push(  val.exchangeId  );
 
-		    } else {
-		    	keywords_exchanges.push(  val.name  );
+			    } else {
+			    	keywords_exchanges.push(  val.name  );
+			    }
+			}
+
+			if ($('#terms_exchanges_options_websites').is(':checked') ) {
+		    	keywords_exchanges.push(  val.exchangeUrl  );
 		    }
-
-		    keywords_exchanges.push(  val.exchangeUrl  );
 		
 		   });
 
@@ -122,7 +145,31 @@ $(document).ready(function() {
 
 	});
 
-    
+	$('#terms_assets').change(function(){
+		if($('#terms_assets').is(':checked')){
+    		$('#term_assets_options_container').prop('hidden', false);
+		} else {
+			$('#term_assets_options_container').prop('hidden', true);
+		}
+    });
+
+
+	$('#terms_exchanges').change(function(){
+		if($('#terms_exchanges').is(':checked')){
+    		$('#term_exchanges_options_container').prop('hidden', false);
+		} else {
+			$('#term_exchanges_options_container').prop('hidden', true);
+		}
+    });
+
+	$('#terms_wallets').change(function(){
+		if($('#terms_wallets').is(':checked')){
+    		$('#term_wallets_options_container').prop('hidden', false);
+		} else {
+			$('#term_wallets_options_container').prop('hidden', true);
+		}
+    });
+
     //Used for switching between view modes. 
     $('input[name=result_display_type]').change(function(){ 
 	    $('.result_display_type').removeClass('is-primary');
