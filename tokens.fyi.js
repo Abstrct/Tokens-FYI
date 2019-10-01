@@ -7,6 +7,7 @@ var keywords_base = [];
 var keywords_wallets = [];
 var keywords_assets = [];
 var keywords_exchanges = [];
+var keywords_addresses = [];
 var keywords_noise = [];
 
 var colours = Array('Default','Black','Dark red','Dark green','Dark yellow','Dark blue','Dark magenta','Dark cyan','Light gray','Gray','Red','Green','Yellow','Blue','Magenta','Cyan','White');
@@ -64,7 +65,15 @@ $(document).ready(function() {
 			displayResults();
 		});
 
-
+		//Build the Addresses Regular Expressions
+		$.getJSON( "data/keywords_addresses.json", function( data ) {
+		  keywords_addresses = [];
+		  for (var i = 0; i < data.length; i++){
+		  	 	keywords_addresses.push(  data[i] );
+		  }
+		}).done(function(){
+			displayResults();
+		});
 
 		//Build the Asset keywords from Coincap.io
 		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
@@ -307,6 +316,32 @@ function displayResults() {
 
 		}
 	}
+
+
+	if ($('#terms_addresses').is(':checked')) {
+		for(var i =0; i < keywords_addresses.length; i++){
+			if (
+					(
+						$('#colour_background').val() != '' 
+						&& $('#colour_background').val() != null 
+					)
+					|| 
+					(
+						$('#colour_text').val() != ''
+						&& $('#colour_text').val() != null
+					)
+				) {
+				results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+				results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
+			}
+
+			results += '"' + keywords_addresses[i] + '"' + '\n';
+
+			$('#keywords_table').find("tbody").append('<tr><td>' + keywords_exchanges[i] + '</td><td>' + ' Addresses ' + '</td><td>'  + (($('#colour_background').val() == null) ? '' : colours[$('#colour_background').val()]) + '</td><td>' + (($('#colour_text').val() == null) ? '' : colours[$('#colour_text').val()])+'</td></tr>');
+
+		}
+	}
+
 	//results = keywords_assets.join('\n') + '\n' + keywords_exchanges.join('\n');
 	$('#textarea_field').html(results);  
 		
