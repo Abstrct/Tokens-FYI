@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "name": ["Blockchain.info"],
+      "website": ["https://blockchain.info","https://blockchain.com","https://www.blockchain.info","https://www.blockchain.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Shapeshift"],
+      "website": ["https://shapeshift.io","https://shapeshift.com","https://www.shapeshift.io","https://www.shapeshift.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Bitcoin Core"],
+      "website": ["https://bitcoin.org","https://bitcoincore.org","https://www.bitcoin.org","https://www.bitcoincore.org"],
+      "relevant_files": ["wallet.dat"]
+    },
+    {
+      "name": ["Litecoin Core"],
+      "website": ["https://litecoin.org","https://www.litecoin.org"],
+      "relevant_files": ["wallet.dat"]
+    },
+    {
+      "name": ["Coinomi"],
+      "website": ["https://coinomi.com","https://www.coinomi.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Exodus"],
+      "website": ["https://exodus.io","https://www.exodus.io"],
+      "relevant_files": []
+    }, 
+    {
+      "name": ["geth","go ethereum"],
+      "website": ["https://geth.ethereum.org"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Parity"],
+      "website": ["https://www.parity.io"],
+      "relevant_files": []
+    }
+  ]
+}

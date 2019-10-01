@@ -29,9 +29,28 @@ $(document).ready(function() {
 			displayResults();
 		});
 
-		//TODO
 		//Build the Wallet Keywords
+		$.getJSON( "data/kewords_wallets.json", function( data ) {
+		  keywords_wallets = [];
+		  $.each(data.data, function( key, val ) {
+		    
+		    for(var i = 0; i < val.name.length; i++) {
+			    keywords_wallets.push(  val.name[i] );
+		    }
 
+		    for(var i = 0; i < val.website.length; i++) {
+			    keywords_wallets.push(  val.website[i] );
+		    }
+
+		    for(var i = 0; i < val.relevant_files.length; i++) {
+			    keywords_wallets.push(  val.relevant_files[i] );
+		    }
+
+		   });
+
+		}).done(function(){
+			displayResults();
+		});
 
 		//Build the Asset keywords from Coincap.io
 		$.getJSON( "https://api.coincap.io/v2/assets?limit=50", function( data ) {
@@ -136,6 +155,34 @@ function displayResults() {
  				}
 			}
 		}
+
+
+		if ($('#terms_wallets').is(':checked')) {
+			for(var i =0; i < keywords_wallets.length; i++){
+				if (
+						(
+							$('#colour_background').val() != '' 
+							&& $('#colour_background').val() != null 
+						)
+						|| 
+						(
+							$('#colour_text').val() != ''
+							&& $('#colour_text').val() != null
+						)
+					) {
+					results += ($('#colour_background').val() != null && $('#colour_background').val() != '')? $('#colour_background').val() +';' : 0 +';';
+					results += ($('#colour_text').val() != null && $('#colour_text').val() != '')? $('#colour_text').val() +';' : 0 +';';
+				}
+
+				if (keywords_wallets[i].indexOf(' ') > -1)
+				{
+ 					results += '"' + keywords_wallets[i] + '"' + '\n';
+ 				} else {
+					results += keywords_wallets[i] + '\n';
+ 				}
+			}
+		}
+
 
 		if ($('#terms_assets').is(':checked')) {
 			for(var i =0; i < keywords_assets.length; i++){
