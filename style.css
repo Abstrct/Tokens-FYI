@@ -39,6 +39,11 @@ header > .container > .social-button {
   margin-left: auto;
 }
 
+
+.nes-table {
+  font-size: small;
+}
+
 .nav-brand .brand-logo {
   margin-right: 1rem;
 }
