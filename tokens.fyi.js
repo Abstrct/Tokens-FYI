@@ -142,8 +142,8 @@ $(document).ready(function() {
 
 	$('#copy_results').click(function(){
 
-
-		if ($('input[name=result_display_type]').val() == "List" || $('input[name=result_display_type]').val() == null) {
+	
+		if ($('input[name=result_display_type]:checked').val() == "List") {
 	 		$('#textarea_field').select();
 	  		document.execCommand("copy");
 		} else {
