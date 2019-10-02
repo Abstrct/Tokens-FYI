@@ -39,6 +39,57 @@
       "name": ["Parity"],
       "website": ["https://www.parity.io"],
       "relevant_files": []
+    },
+    {
+      "name": ["KeepKey"],
+      "website": ["https://www.keepkey.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Trezor"],
+      "website": ["https://trezor.io"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Ledger"],
+      "website": ["https://www.ledger.com","https://ledger.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Cryptosteel"],
+      "website": ["https://www.cryptosteel.com","https://cryptosteel.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Crypto Key Stack"],
+      "website": ["https://www.cryptokeystack.com","https://cryptokeystack.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Crypto Key Stack"],
+      "website": ["https://www.cryptokeystack.com","https://cryptokeystack.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["MyEtherWallet","My Ether Wallet", "MEW"],
+      "website": ["https://www.myetherwallet.com","https://myetherwallet.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["MetaMask"],
+      "website": ["https://metamask.io","https://www.metamask.io"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Mycelium"],
+      "website": ["https://mycelium.com","https://www.mycelium.com"],
+      "relevant_files": []
+    },
+    {
+      "name": ["Copay"],
+      "website": ["https://copay.io","https://github.com/bitpay/copay"],
+      "relevant_files": []
     }
+
   ]
 }
