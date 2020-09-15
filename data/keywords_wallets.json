@@ -84,6 +84,11 @@
       "name": ["Copay"],
       "website": ["https://copay.io","https://github.com/bitpay/copay"],
       "relevant_files": []
+    },
+    {
+      "name": ["BitPay"],
+      "website": ["https://bitpay.com"],
+      "relevant_files": []
     }
 
   ]
